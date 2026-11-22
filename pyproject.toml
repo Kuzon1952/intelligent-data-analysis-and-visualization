@@ -1,0 +1,26 @@
+[project]
+name = "iavd-soc-ml"
+version = "0.1.0"
+description = "ИАиВД, трек «ML-инжиниринг»: дашборды Taipy по карточкам SOC, инференсу модели и SHAP-объяснениям"
+readme = "README.md"
+authors = [
+    { name = "Ови Мд Шамин Ясир" },
+    { name = "Третьяков Алексей" },
+    { name = "Воронов Дмитрий" },
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pandas (>=2.2,<3)",
+    "numpy (>=1.26,<3)",
+    "pyarrow (>=17)",
+    "taipy-gui (>=4.1,<4.2)",
+    "plotly (>=6,<7)",
+    "flask (>=3.1.0,<3.1.3)",
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

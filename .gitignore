@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Taipy
+.taipy/
+user_data/
+
+# Poetry
+poetry.toml
+
+# Данные курса лежат на Яндекс Диске и в репозиторий не попадают.
+# Исключение — два небольших CSV для задания 3 (учебный комплект 3.7).
+data/*
+!data/README.md
+!data/task3/
+data/task3/*
+!data/task3/cards_practice.csv
+!data/task3/shap_cards.csv
+!data/task3/cards_raw_slim.csv
