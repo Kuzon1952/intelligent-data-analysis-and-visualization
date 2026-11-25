@@ -57,7 +57,9 @@ def rules(cards: pd.DataFrame) -> pd.DataFrame:
         no_verdict=v.eq("Без вердикта"), dup=v.eq("Дубликат"), other=v.eq("Прочее"),
     ).groupby("rule").agg(cards=("id", "size"), real=("is_real", "sum"), fp=("is_fp", "sum"),
                           no_verdict=("no_verdict", "sum"), dup=("dup", "sum"), other=("other", "sum"))
-    g = g[g["cards"] >= MIN_RULE_CARDS].copy()
+    # На учебной выборке (1000 карточек) 50 — слишком строго: правил почти не останется
+    limit = MIN_RULE_CARDS if len(cards) >= 10_000 else min(MIN_RULE_CARDS, 10)
+    g = g[g["cards"] >= limit].copy()
     g["real_share"] = g["real"] / g["cards"]
     g["fp_share"] = g["fp"] / g["cards"]
     g["flow_share"] = g["cards"] / len(cards)
